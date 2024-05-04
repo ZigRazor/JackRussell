@@ -32,4 +32,4 @@
 *.app
 
 # CMake Directories
-./build/**
+build/**
