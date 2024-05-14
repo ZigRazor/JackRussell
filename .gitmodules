@@ -1,3 +1,4 @@
 [submodule "dependencies/Labrador"]
 	path = dependencies/Labrador
 	url = https://github.com/ZigRazor/Labrador.git
+	branch = main
