@@ -8,15 +8,15 @@ namespace DogBreeds
             return instance;
         }
 
-        ResultCode TopicManager::createTopic(const std::string &topic_name){
-            if( m_topics.find(topic_name) != m_topics.end()){
-                //Topic already inserted
-                return ResultCode::TOPIC_ALREDY_EXIST;
-            }
-            //Insert Topic
-            m_topics.emplace(topic_name, std::shared_ptr<Topic>(new Topic(topic_name)));
-            return ResultCode::OK;
-        }
+        // ResultCode TopicManager::createTopic(const std::string &topic_name){
+        //     if( m_topics.find(topic_name) != m_topics.end()){
+        //         //Topic already inserted
+        //         return ResultCode::TOPIC_ALREDY_EXIST;
+        //     }
+        //     //Insert Topic
+        //     m_topics.emplace(topic_name, std::shared_ptr<Topic>(new Topic(topic_name)));
+        //     return ResultCode::OK;
+        // }
 
         ResultCode  TopicManager::deleteTopic(const std::string &topic_name){
             if( m_topics.find(topic_name) == m_topics.end()){
