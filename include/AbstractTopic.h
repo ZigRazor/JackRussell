@@ -1,35 +1,36 @@
 #ifndef DOGBREEDS_JACKRUSSELL_ABSTRACTTOPIC_H
 #define DOGBREEDS_JACKRUSSELL_ABSTRACTTOPIC_H
 
-#include <string>
 #include <list>
+#include <mutex>
+#include <string>
 
-#include "Subscriber.h"
+#include "AbstractSubscriber.h"
 #include "AsyncQueueProcessor.hpp"
 
-namespace DogBreeds{
-    namespace JackRussell{
-        class TopicManager;
-        class AbstractTopic{
-            friend class TopicManager;
-            protected:
-                std::string m_name;
-                std::list<std::shared_ptr<Subscriber>> m_subscriberList;
+namespace DogBreeds {
+namespace JackRussell {
+class TopicManager;
+class AbstractTopic {
+  friend class TopicManager;
 
-                AbstractTopic(std::string topic_name);
-                
-            public:                
-                virtual ~AbstractTopic() = default;
+ protected:
+  std::string m_name;
+  std::mutex m_subscriberListMutex;
+  std::list<std::shared_ptr<AbstractSubscriber>> m_subscriberList;
 
-                const std::string& getName() const;
-                ResultCode addSubscriber(std::shared_ptr<Subscriber> sub);
-                ResultCode removeSubscriber(std::shared_ptr<Subscriber> sub);
-                template<typename T>
-                ResultCode publish(std::shared_ptr<T> message);
-                
-            
-        };
-    }
-}
+  AbstractTopic(std::string topic_name);
 
-#endif // DOGBREEDS_JACKRUSSELL_ABSTRACTTOPIC_H
+ public:
+  virtual ~AbstractTopic() = default;
+
+  const std::string& getName() const;
+  ResultCode addSubscriber(std::shared_ptr<AbstractSubscriber> sub);
+  ResultCode removeSubscriber(std::shared_ptr<AbstractSubscriber> sub);
+  // template<typename T>
+  // ResultCode publish(std::shared_ptr<T> message);
+};
+}  // namespace JackRussell
+}  // namespace DogBreeds
+
+#endif  // DOGBREEDS_JACKRUSSELL_ABSTRACTTOPIC_H
