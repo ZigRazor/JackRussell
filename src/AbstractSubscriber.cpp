@@ -5,6 +5,7 @@
 namespace DogBreeds {
 namespace JackRussell {
 
-AbstractSubscriber::AbstractSubscriber() {}
+AbstractSubscriber::AbstractSubscriber(const std::string& name)
+    : m_name(name) {}
 }  // namespace JackRussell
 }  // namespace DogBreeds

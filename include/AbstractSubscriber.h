@@ -8,12 +8,12 @@
 namespace DogBreeds {
 namespace JackRussell {
 class AbstractSubscriber {
- public:
-  AbstractSubscriber();
-  virtual ~AbstractSubscriber() = default;
+ private:
+  std::string m_name;
 
-  // ResultCode subscribe(std::string topic_name);
-  // ResultCode unsubscribe(std::string topic_name);
+ public:
+  AbstractSubscriber(const std::string& name);
+  virtual ~AbstractSubscriber() = default;
 };
 }  // namespace JackRussell
 }  // namespace DogBreeds

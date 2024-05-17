@@ -12,9 +12,9 @@ template <typename T>
 class Subscriber : public AbstractSubscriber {
  private:
  public:
-  Subscriber() : AbstractSubscriber() {}
+  Subscriber(const std::string& name) : AbstractSubscriber(name) {}
   virtual ~Subscriber() = default;
-  virtual void onMessage(std::shared_ptr<T> message) const;
+  virtual void onMessage(std::shared_ptr<T> message) const = 0;
 };
 }  // namespace JackRussell
 }  // namespace DogBreeds

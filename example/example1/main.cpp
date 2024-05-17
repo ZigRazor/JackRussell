@@ -6,12 +6,11 @@
 #include "Subscriber.hpp"
 #include "TopicManager.h"
 
-
 using namespace DogBreeds;
 
 class MyIntSub : public JackRussell::Subscriber<int> {
  public:
-  MyIntSub() : DogBreeds::JackRussell::Subscriber<int>() {}
+  MyIntSub() : DogBreeds::JackRussell::Subscriber<int>("MyIntSub") {}
   virtual ~MyIntSub() = default;
 
   void onMessage(std::shared_ptr<int> message) const override {
