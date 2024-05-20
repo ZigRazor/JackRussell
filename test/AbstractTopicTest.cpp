@@ -1,5 +1,8 @@
 #include <gtest/gtest.h>
+
+#include "AbstractTopic.h"
 #include "MockSubscriber.h"
+#include "MockTopic.h"
 #include "ResultCode.h"
 
 using namespace DogBreeds::JackRussell;
@@ -7,9 +10,7 @@ using namespace DogBreeds::JackRussell;
 class AbstractTopicTest : public ::testing::Test {
  protected:
   std::shared_ptr<AbstractTopic> topic;
-  void SetUp() override {
-    topic = std::make_shared<AbstractTopic>("test_topic");
-  }
+  void SetUp() override { topic = std::make_shared<MockTopic>("test_topic"); }
 };
 
 TEST_F(AbstractTopicTest, AddSubscriber) {

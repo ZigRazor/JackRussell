@@ -46,6 +46,8 @@ target_include_directories(jackrussell_test_exe
 
 target_link_libraries(jackrussell_test_exe
     PUBLIC GTest::gtest_main
+	GTest::gtest
+	GTest::gmock
     pthread
 	Labrador
 	JackRussell

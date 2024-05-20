@@ -1,15 +1,9 @@
-/*
- * MockSubscriber.h
- *
- *  Created on: 20 mag 2024
- *      Author: BOTTICCIM
- */
-
 #ifndef TEST_MOCKSUBSCRIBER_H_
 #define TEST_MOCKSUBSCRIBER_H_
 
-#include "Subscriber.hpp"
 #include <gmock/gmock.h>
+
+#include "Subscriber.hpp"
 
 namespace DogBreeds {
 namespace JackRussell {
@@ -23,7 +17,5 @@ class MockSubscriber : public Subscriber<T> {
 
 }  // namespace JackRussell
 }  // namespace DogBreeds
-
-
 
 #endif /* TEST_MOCKSUBSCRIBER_H_ */
