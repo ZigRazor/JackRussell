@@ -57,4 +57,20 @@ target_include_directories( ${PROJECT_NAME} PUBLIC
 
 target_link_libraries(  ${PROJECT_NAME} PUBLIC Labrador)
 
-add_subdirectory("example")
+file( GLOB HEADERS_FILES "include/*.h*" )
+
+#message ( ERROR "HEADERS_FILES: ${HEADERS_FILES}" )
+
+target_sources ( ${PROJECT_NAME} INTERFACE ${HEADERS_FILES} ${SRC_FILES} )
+target_compile_features( ${PROJECT_NAME} INTERFACE cxx_std_20 )
+target_include_directories( ${PROJECT_NAME} INTERFACE include/ )
+
+option(TEST "Enable Test" OFF)
+if(TEST)
+	enable_testing()
+	add_subdirectory("test")
+endif(TEST)
+option(EXAMPLE "Enable Example" OFF)
+if(EXAMPLE)
+	add_subdirectory("example")
+endif(EXAMPLE)
