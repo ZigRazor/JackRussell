@@ -40,6 +40,7 @@ target_compile_definitions(jackrussell_test_exe
 
 target_include_directories(jackrussell_test_exe
     PUBLIC "${PROJECT_SOURCE_DIR}/include"
+    PUBLIC "${PROJECT_SOURCE_DIR}/test"
 	Labrador
 )
 
@@ -50,7 +51,7 @@ target_link_libraries(jackrussell_test_exe
 	JackRussell
 )
 
-# add_test(test_bounded_queue jackrussell_test_exe --gtest_filter=BoundedQueueTest*)
-# add_test(test_concurrent_queue jackrussell_test_exe --gtest_filter=ConcurrentQueueTest*)
+add_test(AbstractTopicTest jackrussell_test_exe --gtest_filter=AbstractTopicTest*)
+add_test(TopicManagerTest jackrussell_test_exe --gtest_filter=TopicManagerTest*)
    
 
