@@ -12,7 +12,7 @@ template <typename T>
 class MockSubscriber : public Subscriber<T> {
  public:
   MockSubscriber(const std::string &name) : Subscriber<T>(name) {}
-  MOCK_METHOD(void, onMessage, (std::shared_ptr<T> message), (const, override));
+  MOCK_METHOD(void, onMessage, (std::shared_ptr<T> message), (override));
 };
 
 }  // namespace JackRussell

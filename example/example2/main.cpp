@@ -14,7 +14,7 @@ class MyIntSub : public JackRussell::Subscriber<int> {
   MyIntSub() : DogBreeds::JackRussell::Subscriber<int>("MyIntSubS") {}
   virtual ~MyIntSub() = default;
 
-  void onMessage(std::shared_ptr<int> message) const override {
+  void onMessage(std::shared_ptr<int> message) override {
     std::cout << "Received: " << *message << std::endl;
   }
 };
@@ -25,7 +25,7 @@ class MyStringSub : public JackRussell::Subscriber<std::string> {
       : DogBreeds::JackRussell::Subscriber<std::string>("MyStringSub") {}
   virtual ~MyStringSub() = default;
 
-  void onMessage(std::shared_ptr<std::string> message) const override {
+  void onMessage(std::shared_ptr<std::string> message) override {
     std::cout << "Received: " << *message << std::endl;
   }
 };

@@ -13,7 +13,7 @@ class MyIntSub : public JackRussell::Subscriber<int> {
   MyIntSub() : DogBreeds::JackRussell::Subscriber<int>("MyIntSub") {}
   virtual ~MyIntSub() = default;
 
-  void onMessage(std::shared_ptr<int> message) const override {
+  void onMessage(std::shared_ptr<int> message) override {
     std::cout << "Received: " << *message << std::endl;
   }
 };

@@ -14,7 +14,7 @@ class Subscriber : public AbstractSubscriber {
  public:
   Subscriber(const std::string& name) : AbstractSubscriber(name) {}
   virtual ~Subscriber() = default;
-  virtual void onMessage(std::shared_ptr<T> message) const = 0;
+  virtual void onMessage(std::shared_ptr<T> message) = 0;
 };
 }  // namespace JackRussell
 }  // namespace DogBreeds
