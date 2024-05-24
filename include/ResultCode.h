@@ -49,7 +49,7 @@ enum class ResultCode {
    */
   SUBSCRIBER_IS_ALREADY_SUBSCRIBED_TO_TOPIC
 };
-}
+}  // namespace JackRussell
 }  // namespace DogBreeds
 
 #endif  // DOGBREEDS_JACKRUSSELL_RESULTCODE_H
