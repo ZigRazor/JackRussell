@@ -8,6 +8,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 file( GLOB SRC_FILES "src/*.cpp" )
 
+configure_file(${PROJECT_SOURCE_DIR}/include/JackRussellConfig.h.in ${PROJECT_SOURCE_DIR}/include/JackRussellConfig.h @ONLY)
+
 message ( ERROR "SRC_FILES: ${SRC_FILES}" )
 
 option(DEBUG "Enable Debug" OFF)
