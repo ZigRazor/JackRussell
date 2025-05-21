@@ -41,7 +41,7 @@ class TopicManager {
    * @brief Construct a new Topic Manager object
    *
    */
-  TopicManager(){};
+  TopicManager() {};
 
   /**
    * @brief Destroy the Topic Manager object
@@ -86,6 +86,26 @@ class TopicManager {
     // Insert Topic
     m_topics.emplace(topic_name,
                      std::shared_ptr<AbstractTopic>(new Topic<T>(topic_name)));
+    return ResultCode::OK;
+  }
+  /**
+   * @brief Create a SyncTopic object
+   *
+   * @tparam T The Topic Type
+   * @param topic_name The Topic Name to Create
+   * @return ResultCode OK if all Ok, or TOPIC_ALREDY_EXIST if the topic already
+   * exist
+   */
+  template <typename T>
+  ResultCode createSyncTopic(const std::string &topic_name) {
+    std::lock_guard<std::mutex> lock(m_topicsMutex);
+    if (m_topics.find(topic_name) != m_topics.end()) {
+      // Topic already inserted
+      return ResultCode::TOPIC_ALREDY_EXIST;
+    }
+    // Insert Topic
+    m_topics.emplace(topic_name, std::shared_ptr<AbstractTopic>(
+                                     new SyncTopic<T>(topic_name)));
     return ResultCode::OK;
   }
   /**
