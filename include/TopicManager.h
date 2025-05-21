@@ -16,6 +16,7 @@
 
 #include "AbstractTopic.h"
 #include "ResultCode.h"
+#include "SyncTopic.hpp"
 #include "Topic.hpp"
 
 namespace DogBreeds {
